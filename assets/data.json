@@ -1,0 +1,62 @@
+[
+  {
+    "name": "3D Lab",
+    "facility": "3D & Digital Prototyping",
+    "building": "Sheila C. Johnson Design Center, 2 W 13th St",
+    "floor": "2nd Floor",
+    "tools": "Prusa MK3S+, Prusa XL, Form 4, EinScan H Handheld Scanner, EinScan-SP Desktop Scanner, PotterBot Micro V10",
+    "weekday_open": "10:30",
+    "weekday_close": "18:00",
+    "weekend_open": "11:30",
+    "weekend_close": "19:00",
+    "weekend_days": "Saturday, Sunday"
+  },
+  {
+    "name": "Digital Photo Labs",
+    "facility": "Print",
+    "building": "Sheila C. Johnson Design Center, 66 5th Ave",
+    "floor": "3rd Floor",
+    "tools": "Inkjet Plotter, Mac Pro, Photo Scanner",
+    "weekday_open": "09:00",
+    "weekday_close": "22:30",
+    "weekend_open": "10:30",
+    "weekend_close": "21:30",
+    "weekend_days": "Saturday, Sunday"
+  },
+  {
+    "name": "Photography Studios",
+    "facility": "Media",
+    "building": "Sheila C. Johnson Design Center, 66 5th Ave",
+    "floor": "3rd, 4th & Lower Level",
+    "tools": "AC Strobe Light Kit, Light Modifiers, Continuous Light Kits, Portable Backdrop",
+    "weekday_open": "09:00",
+    "weekday_close": "22:00",
+    "weekend_open": "11:00",
+    "weekend_close": "21:00",
+    "weekend_days": "Saturday, Sunday"
+  },
+  {
+    "name": "E4 Shops: Wood, Metal + Non-Ferrous/Jewelry",
+    "facility": "Wood, Metal and Ceramics",
+    "building": "Parsons East Building, 25 E 13th St",
+    "floor": "4th Floor",
+    "tools": "Table Saw, Drill Press, Flex Shafts, Hand Tools, Drill Bits",
+    "weekday_open": "09:00",
+    "weekday_close": "20:00",
+    "weekend_open": "10:00",
+    "weekend_close": "18:00",
+    "weekend_days": "Saturday, Sunday"
+  },
+  {
+    "name": "Specialty Sewing Lab",
+    "facility": "Sewing and Textiles",
+    "building": "University Center, 63 Fifth Ave",
+    "floor": "Room S18, 5th Floor",
+    "tools": "Sewing Machine, Coverstitch Machine, Cylinder Arm Machine, 5-Step Machine, Walking Foot Flat Bed Machine, Post Machine, Edge Skiver, Blind Hem Machine, Bonis Fur Machine, Double Needle Placket, Bartack, Ultrasonic Welder, Computerized Domestic Sewing Machine, Heat Press, 2-needle Chainstitch",
+    "weekday_open": "10:00",
+    "weekday_close": "19:30",
+    "weekend_open": "12:00",
+    "weekend_close": "16:45",
+    "weekend_days": "Saturday"
+  }
+]
