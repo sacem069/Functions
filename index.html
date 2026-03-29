@@ -15,6 +15,10 @@
             <h1> Parsons Making Center </h1>
         </header>
 
+
+        <form id="some-form">
+
+        <section>
         <label for="tool-select">Choose a tool:</label>
         <select name="tools" id="tool-select">
             <option value="">Choose a tool</option>
@@ -73,10 +77,43 @@
                         <option value="2-needle Chainstitch">2-needle Chainstitch</option>
                       </optgroup>
             
-
-
-
         </select>
+        </section>
+
+        <section>
+             <label for="day-select">Choose a day:</label>
+             <select name="day" id="day-select">
+                <option value="">Choose a day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>  
+                
+             </select>
+        </section>
+
+        <section>
+            <label for="time-select"> Choose a time: </label>
+            <input
+            type="time"
+            id="time-select"
+            name="time"
+            min="09:00"
+            max="22:30"
+            required />
+        
+        </section>
+
+        <section>
+				<button type="reset">Reset</button>
+				<button>Submit</button>
+			</section>
+ 
+        </form>
+        	<ul id="makingcenter-list"></ul>
        
 
     </body>
