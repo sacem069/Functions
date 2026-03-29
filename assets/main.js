@@ -1,5 +1,19 @@
 let renderItems = (data) => {
     let dataList = document.getElementById('makingcenter-list')
+	dataList.innerHTML = ''
+
+	data.forEach((item) => {
+
+		let listItem = 
+		`
+		    <li>
+			<h2>${item.name}</h2>
+			<p>${item.building}</p>
+		</li>
+		`
+
+       dataList.insertAdjacentHTML('beforeend', listItem) 
+	})
 }
 
 let allData = []
@@ -24,11 +38,12 @@ formElement.addEventListener('submit', (event) => {
 			return item.tools.includes(selectedTool) &&
 			selectedTime >= item.weekday_open &&
 			selectedTime <= item.weekday_close
-
 		}	
 })
   console.log(results)
+  renderItems(results)
 })
+
 
 
 fetch('assets/data.json')
@@ -36,7 +51,6 @@ fetch('assets/data.json')
 	.then(data => {
         allData = data
 		// And passes the data to the function, above!
-		renderItems(data)
 	})
 
 
