@@ -9,6 +9,13 @@ let renderItems = (data) => {
 		    <li>
 			<h2>${item.name}</h2>
 			<p>${item.building}</p>
+			<p>${item.floor}</p>
+			<p>${item.facility}</p>
+			<p>${item.weekday_open}</p>
+			<p>${item.weekday_close}</p>
+			<p>${item.weekend_open}</p>
+			<p>${item.weekend_close}</p>
+			<p>${item.weekend_days}</p>
 		</li>
 		`
 
@@ -18,7 +25,7 @@ let renderItems = (data) => {
 
 let allData = []
 
-let formElement = document.getElementById('some-form')
+let formElement = document.getElementById('making-center-form')
 
 
 formElement.addEventListener('submit', (event) => {
