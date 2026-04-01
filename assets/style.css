@@ -1,0 +1,27 @@
+/* Some basics to make it easier to read. */
+body {
+	--spacing: 2em;
+
+	display: grid;
+	gap: var(--spacing);
+	margin: initial;
+	padding: var(--spacing);
+}
+
+form {
+	background-color: rgb(222, 222, 222);
+	display: grid;
+	gap: var(--spacing);
+	padding: var(--spacing);
+}
+
+button {
+    border: 1px solid black;
+    padding: 0.5em;
+}
+
+select, input {
+    border: 1px solid black;
+    padding: 0.5em;
+    background-color: white;
+}
