@@ -36,7 +36,8 @@ formElement.addEventListener('submit', (event) => {
 	let selectedToolMedia = document.getElementById('tool-select-media').value
 	let selectedToolWood = document.getElementById('tool-select-wood').value
 	let selectedToolSewing = document.getElementById('tool-select-sewing').value
-	let selectedTool = selectedTool3D || selectedToolPrint || selectedToolMedia || selectedToolWood || selectedToolSewing
+	let selectedToolOpen = document.getElementById('tool-select-open').value
+	let selectedTool = selectedTool3D || selectedToolPrint || selectedToolMedia || selectedToolWood || selectedToolSewing || selectedToolOpen
 	let selectedDay = document.getElementById('day-select').value
 	let selectedTime = document.getElementById('time-select').value
 	console.log(`Tool: ${selectedTool}, Day: ${selectedDay}, Time: ${selectedTime}`)
