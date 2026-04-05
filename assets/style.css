@@ -1,6 +1,6 @@
 /* Some basics to make it easier to read. */
 body {
-	--spacing: 2em;
+	--spacing: 3em;
 
 	display: grid;
 	gap: var(--spacing);
@@ -29,7 +29,7 @@ select, input {
 #tools {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: var(--spacing);
+	gap: 2em;
 	
 
 }
