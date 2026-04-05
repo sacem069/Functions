@@ -59,6 +59,7 @@ formElement.addEventListener('submit', (event) => {
 
 
 
+
 fetch('assets/data.json')
 	.then(response => response.json())
 	.then(data => {

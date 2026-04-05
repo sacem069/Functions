@@ -31,5 +31,8 @@ select, input {
 	grid-template-columns: repeat(3, 1fr);
 	gap: 2em;
 	
+}
 
+#tools-3D {
+	color: blue;
 }
