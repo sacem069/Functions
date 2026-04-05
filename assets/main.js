@@ -1,11 +1,11 @@
 let renderItems = (data) => {
-    let dataList = document.getElementById('makingcenter-list')
+	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
 
 	data.forEach((item) => {
 
-		let listItem = 
-		`
+		let listItem =
+			`
 		    <li>
 			<h2>${item.name}</h2>
 			<p>${item.building}</p>
@@ -19,7 +19,7 @@ let renderItems = (data) => {
 		</li>
 		`
 
-       dataList.insertAdjacentHTML('beforeend', listItem) 
+		dataList.insertAdjacentHTML('beforeend', listItem)
 	})
 }
 
@@ -29,26 +29,31 @@ let formElement = document.getElementById('making-center-form')
 
 
 formElement.addEventListener('submit', (event) => {
-    event.preventDefault()
-    console.log('submitted!')
-    let selectedTool = document.getElementById('tool-select').value
-    let selectedDay= document.getElementById('day-select').value
-    let selectedTime =	document.getElementById('time-select').value
+	event.preventDefault()
+	console.log('submitted!')
+	let selectedTool3D = document.getElementById('tool-select-3D').value
+	let selectedToolPrint = document.getElementById('tool-select-print').value
+	let selectedToolMedia = document.getElementById('tool-select-media').value
+	let selectedToolWood = document.getElementById('tool-select-wood').value
+	let selectedToolSewing = document.getElementById('tool-select-sewing').value
+	let selectedDay = document.getElementById('day-select').value
+	let selectedTime = document.getElementById('time-select').value
 	console.log(`Tool: ${selectedTool}, Day: ${selectedDay}, Time: ${selectedTime}`)
 
-	let results = 
-	allData.filter ((item) => {
-		if (selectedDay == "Saturday" || selectedDay === "Sunday") {
-			return item.tools.includes(selectedTool) && 
-	item.weekend_days.includes(selectedDay)
-		} else {
-			return item.tools.includes(selectedTool) &&
-			selectedTime >= item.weekday_open &&
-			selectedTime <= item.weekday_close
-		}	
-})
-  console.log(results)
-  renderItems(results)
+	let results =
+		allData.filter((item) => {
+			if (selectedDay == "Saturday" || selectedDay === "Sunday") {
+				return item.tools.includes(selectedTool3D && selectedToolPrint && selectedToolMedia && selectedToolWood && selectedToolSewing) &&
+					item.weekend_days.includes(selectedDay)
+			} else {
+				return item.tools.includes(selectedTool3D && selectedToolPrint && selectedToolMedia && selectedToolWood && selectedToolSewing) &&
+					selectedTime >= item.weekday_open &&
+					selectedTime <= item.weekday_close
+			}
+		})
+
+	console.log(results)
+	renderItems(results)
 })
 
 
@@ -56,7 +61,7 @@ formElement.addEventListener('submit', (event) => {
 fetch('assets/data.json')
 	.then(response => response.json())
 	.then(data => {
-        allData = data
+		allData = data
 		// And passes the data to the function, above!
 	})
 
