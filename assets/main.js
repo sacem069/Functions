@@ -27,6 +27,7 @@ let allData = []
 
 let formElement = document.getElementById('making-center-form')
 
+//Exact time by default
 // used this example as reference to set the time input to the current time: https://codepen.io/mfehrenbach/pen/jEMpamr?editors=1010
 //selecting the time input 
 const timeInput = document.getElementById('time-select') 
@@ -37,6 +38,12 @@ const hours = String(rightNow.getHours()).padStart(2, '0')
 const minutes = String(rightNow.getMinutes()).padStart(2, '0')
 //sets the time imput's displayed value to the current time, combining hours and minutes with a : in between
 timeInput.value = `${hours}:${minutes}`
+
+
+//Exact day by default
+const dayInput = document.getElementById('day-select') 
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+dayInput.value = days[rightNow.getDay()]
 
 
 formElement.addEventListener('submit', (event) => {
