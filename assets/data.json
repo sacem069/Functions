@@ -9,7 +9,8 @@
     "weekday_close": "18:00",
     "weekend_open": "11:30",
     "weekend_close": "19:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/08/20160908_Making_Center_009-3.jpg"
   },
   {
@@ -22,7 +23,8 @@
     "weekday_close": "18:00",
     "weekend_open": "11:00",
     "weekend_close": "15:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-20191121_Game_Club_050-1-1024x683.jpg"
   },
   {
@@ -35,7 +37,8 @@
     "weekday_close": "22:30",
     "weekend_open": "10:30",
     "weekend_close": "21:30",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-042114_Student_Life_303-1-1024x683.jpg"
   },
   {
@@ -48,7 +51,8 @@
     "weekday_close": "18:00",
     "weekend_open": "11:00",
     "weekend_close": "19:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/PXL_20201214_194523705.MP_-1536x1152-1-1024x768.jpg"
   },
   {
@@ -61,7 +65,8 @@
     "weekday_close": "22:30",
     "weekend_open": "10:30",
     "weekend_close": "21:30",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2018/10/print-finishing-01-scaled.jpg"
   },
   {
@@ -74,7 +79,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20160907_Printmaking_Demo_018.jpg"
   },
   {
@@ -87,7 +93,8 @@
     "weekday_close": "20:00",
     "weekend_open": "11:30",
     "weekend_close": "19:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/Image-from-iOS-copy-3-1536x1152-1-1024x768.jpg"
   },
   {
@@ -100,7 +107,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-20191205_Printmaking_Studio_010-1-1024x683.jpg"
   },
   {
@@ -113,7 +121,8 @@
     "weekday_close": "22:30",
     "weekend_open": "10:30",
     "weekend_close": "21:30",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2014/07/IMG_32242.jpg"
   },
   {
@@ -126,7 +135,8 @@
     "weekday_close": "22:00",
     "weekend_open": "11:00",
     "weekend_close": "21:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20230815_Making_Center_044-500x334.jpg"
   },
   {
@@ -139,7 +149,8 @@
     "weekday_close": "18:00",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20251111_Heliodon_Lighting_Demo_006-scaled.jpg"
   },
   {
@@ -152,7 +163,8 @@
     "weekday_close": "22:00",
     "weekend_open": "12:00",
     "weekend_close": "17:30",
-    "weekend_days": "Saturday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2025/11/20240417_Cinematography_Lighting_004-1024x683.jpg"
   },
   {
@@ -165,7 +177,8 @@
     "weekday_close": "22:00",
     "weekend_open": "11:00",
     "weekend_close": "21:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2018/01/20230815_Making_Center_056-500x334.jpg"
   },
   {
@@ -178,7 +191,8 @@
     "weekday_close": "22:00",
     "weekend_open": "11:00",
     "weekend_close": "21:00",
-    "weekend_days": "Saturday, Sunday",
+   "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20230815_Making_Center_037.jpg"
   },
   {
@@ -191,7 +205,8 @@
     "weekday_close": "22:00",
     "weekend_open": "11:00",
     "weekend_close": "21:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-043009_Student_Life_C_416-1-1024x683.jpg"
   },
   {
@@ -204,7 +219,8 @@
     "weekday_close": "21:00",
     "weekend_open": "10:00",
     "weekend_close": "18:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2018/11/N2TCO-1024x768.jpg"
   },
   {
@@ -217,7 +233,8 @@
     "weekday_close": "20:00",
     "weekend_open": "10:30",
     "weekend_close": "18:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-20200131_Wet_Shop_004-1-1024x683.jpg"
   },
   {
@@ -230,7 +247,8 @@
     "weekday_close": "20:00",
     "weekend_open": "10:00",
     "weekend_close": "18:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2024/08/E4-shops-1024x683.png"
   },
   {
@@ -243,7 +261,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/IMG_4915-1024x768.jpeg"
   },
   {
@@ -256,7 +275,8 @@
     "weekday_close": "19:00",
     "weekend_open": "11:00",
     "weekend_close": "18:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/IMG_4909-scaled.jpeg"
   },
   {
@@ -269,7 +289,8 @@
     "weekday_close": "19:00",
     "weekend_open": "11:00",
     "weekend_close": "18:00",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-20181114_Intro_Textiles_085.jpg"
   },
   {
@@ -282,7 +303,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2020/01/IMG-3942-1024x768.jpg"
   },
   {
@@ -295,7 +317,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+   "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/TNS_Website-120605_Student_Life_154-1-1024x683.jpg"
   },
   {
@@ -308,7 +331,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2021/02/20250723_Summer_Intensive_Studies_033-500x333.jpg"
   },
   {
@@ -321,7 +345,8 @@
     "weekday_close": "19:30",
     "weekend_open": "12:00",
     "weekend_close": "16:45",
-    "weekend_days": "Saturday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20161102_Making_Center_002-500x334.jpg"
   },
   {
@@ -334,7 +359,8 @@
     "weekday_close": "20:00",
     "weekend_open": "10:30",
     "weekend_close": "17:30",
-    "weekend_days": "Saturday, Sunday",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/20191211_Design_Lab_051-1024x683.jpg"
   },
   {
@@ -347,7 +373,8 @@
     "weekday_close": "",
     "weekend_open": "",
     "weekend_close": "",
-    "weekend_days": "",
+    "weekend_days": "Weekends",
+    "week_days": "Weekdays",
     "image": "https://makingcenter.parsons.edu/wp-content/uploads/2016/09/1636_06-1.jpg"
   }
 ]

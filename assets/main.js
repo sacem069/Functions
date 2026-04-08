@@ -8,15 +8,18 @@ let renderItems = (data) => {
 			`
 		    <li>
 			<h2>${item.name}</h2>
+			<img src="${item.image}" alt="${item.name}">
 			<p>${item.building}</p>
 			<p>${item.floor}</p>
-			<p>${item.facility}</p>
+			<p>${item.week_days}</p>
 			<p>${item.weekday_open}</p>
 			<p>${item.weekday_close}</p>
+			<p>${item.weekend_days}</p>
 			<p>${item.weekend_open}</p>
 			<p>${item.weekend_close}</p>
-			<p>${item.weekend_days}</p>
-			<img src="${item.image}" alt="${item.name}">
+			
+			
+			
 		</li>
 		`
 
