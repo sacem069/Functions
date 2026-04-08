@@ -1,3 +1,14 @@
+
+const facilityColors = {
+	"3D & Digital Prototyping": "#0A4DFF",
+	"Print": "#D3026B",
+	"Media": "#7A38EB",
+	"Wood, Metal and Ceramics": "#F5BB3C",
+	"Sewing and Textiles": "#238C87",
+	"Open Work Spaces": "#F14A02",
+}
+
+
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
@@ -6,9 +17,12 @@ let renderItems = (data) => {
 
 		let listItem =
 			`
-		    <li>
+		    <li style="border: 3px solid ${facilityColors[item.facility]};">
+			<header style="background-color: ${facilityColors[item.facility]}; color: white;"> 
 			<h2>${item.name}</h2>
+			</header>
 			<img src="${item.image}" alt="${item.name}">
+			<div class="info">
 			<p>${item.building}</p>
 			<p>${item.floor}</p>
 			<p>${item.week_days}</p>
@@ -17,12 +31,10 @@ let renderItems = (data) => {
 			<p>${item.weekend_days}</p>
 			<p>${item.weekend_open}</p>
 			<p>${item.weekend_close}</p>
-			
-			
+			</div>
 			
 		</li>
 		`
-
 		dataList.insertAdjacentHTML('beforeend', listItem)
 	})
 }

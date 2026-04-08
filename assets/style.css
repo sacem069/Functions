@@ -89,3 +89,22 @@ select, input {
 }
 
 
+#makingcenter-list {
+	display: grid;
+	gap: 2em;
+}
+
+li img {
+	width: 100%;
+	display: block;
+}
+
+li header {
+	padding: 1em;
+	color: white;
+}
+
+info {
+	padding: 1em;
+}
+
