@@ -1,11 +1,29 @@
 /* Some basics to make it easier to read. */
+
+:root {
+     --color-3D: #0A4DFF;
+     --color-media: #7A38EB;
+     --color-print: #D3026B;
+     --color-wood: #F5BB3C;
+	 --color-open: #F14A02;
+	 --color-sewing: #238C87;
+
+}
+
+
 body {
-	--spacing: 3em;
+	--spacing: 2em;
 
 	display: grid;
 	gap: var(--spacing);
-	margin: initial;
+	margin: 0;
 	padding: var(--spacing);
+	overflow-x: hidden;
+}
+
+@media (width > 768px) {
+	body { --spacing: 3em;
+	}
 }
 
 form {
@@ -26,13 +44,47 @@ select, input {
     background-color: white;
 }
 
+
+#tools {
+	display: grid;
+	gap: 1em;
+}
+
+@media (width > 768px) {
 #tools {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 2em;
-	
+}
 }
 
-#tools-3D {
-	color: blue;
+.tool-select {
+	color: white;
 }
+
+
+#tool-select-3D {
+	background-color: var(--color-3D);
+}
+
+#tool-select-media {
+	background-color: var(--color-media);
+}
+
+#tool-select-print {
+	background-color: var(--color-print);
+}
+
+#tool-select-wood {
+	background-color: var(--color-wood);
+}
+
+#tool-select-sewing {
+	background-color: var(--color-sewing);
+}
+
+#tool-select-open {
+	background-color: var(--color-open);
+}
+
+
