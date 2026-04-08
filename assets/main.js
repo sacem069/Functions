@@ -16,6 +16,7 @@ let renderItems = (data) => {
 			<p>${item.weekend_open}</p>
 			<p>${item.weekend_close}</p>
 			<p>${item.weekend_days}</p>
+			<img src="${item.image}" alt="${item.name}">
 		</li>
 		`
 
