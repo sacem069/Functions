@@ -27,6 +27,17 @@ let allData = []
 
 let formElement = document.getElementById('making-center-form')
 
+// used this example as reference to set the time input to the current time: https://codepen.io/mfehrenbach/pen/jEMpamr?editors=1010
+//selecting the time input 
+const timeInput = document.getElementById('time-select') 
+//getting current day and time
+const rightNow = new Date()
+//as get hours returns a number we need a string to use the padStart method to add a leading zero if the hour is less than 10
+const hours = String(rightNow.getHours()).padStart(2, '0')
+const minutes = String(rightNow.getMinutes()).padStart(2, '0')
+//sets the time imput's displayed value to the current time, combining hours and minutes with a : in between
+timeInput.value = `${hours}:${minutes}`
+
 
 formElement.addEventListener('submit', (event) => {
 	event.preventDefault()
@@ -57,6 +68,8 @@ formElement.addEventListener('submit', (event) => {
 	console.log(results)
 	renderItems(results)
 })
+
+
 
 
 
