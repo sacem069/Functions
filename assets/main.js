@@ -1,4 +1,6 @@
 
+
+// https://claude.ai/share/62daabaa-1485-4c60-bf8c-d81ab6b93031
 const facilityColors = {
 	"3D & Digital Prototyping": "#0A4DFF",
 	"Print": "#D3026B",
@@ -65,7 +67,7 @@ dayInput.value = days[rightNow.getDay()]
 formElement.addEventListener('submit', (event) => {
 	event.preventDefault()
 	console.log('submitted!')
-	let selectedTool3D = document.getElementById('tool-select-3D' ||  'tool-select-print' || 'tool-select-media' || 'tool-select-wood' || 'tool-select-sewing').value
+	let selectedTool3D = document.getElementById('tool-select-3D').value
 	let selectedToolPrint = document.getElementById('tool-select-print').value
 	let selectedToolMedia = document.getElementById('tool-select-media').value
 	let selectedToolWood = document.getElementById('tool-select-wood').value
