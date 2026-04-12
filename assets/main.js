@@ -12,6 +12,11 @@ const facilityColors = {
 
 const facilities = ['3D & Digital Prototyping', 'Print', 'Media', 'Wood, Metal and Ceramics', 'Sewing and Textiles', 'Open Work Spaces']
 
+const timeRanges = {
+	"Morning": { start: "09:00", end: "12:00" },
+	"Afternoon": { start: "12:00", end: "17:00" },
+	"Evening": { start: "17:00", end: "22:30" }
+}
 
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
@@ -111,20 +116,22 @@ let formElement = document.getElementById('making-center-form')
 //Exact time by default
 // used this example as reference to set the time input to the current time: https://codepen.io/mfehrenbach/pen/jEMpamr?editors=1010
 //selecting the time input 
-const timeInput = document.getElementById('time-select')
 //getting current day and time
 const rightNow = new Date()
 //as get hours returns a number we need a string to use the padStart method to add a leading zero if the hour is less than 10
-const hours = String(rightNow.getHours()).padStart(2, '0')
-const minutes = String(rightNow.getMinutes()).padStart(2, '0')
-//sets the time imput's displayed value to the current time, combining hours and minutes with a : in between
-timeInput.value = `${hours}:${minutes}`
+
 
 
 //Exact day by default
 const dayInput = document.getElementById('day-select')
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 dayInput.value = days[rightNow.getDay()]
+
+document.querySelectorAll('.time-btn').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+        document.getElementById('time-select').value = event.target.value
+    })
+})
 
 
 formElement.addEventListener('submit', (event) => {
@@ -141,9 +148,11 @@ formElement.addEventListener('submit', (event) => {
 				return item.tools.includes(selectedTool) &&
 					item.weekend_days.includes(selectedDay)
 			} else {
+				let timeRange = timeRanges[selectedTime]
 				return item.tools.includes(selectedTool) &&
-					selectedTime >= item.weekday_open &&
-					selectedTime <= item.weekday_close
+				timeRange.start < item.weekday_close &&
+				timeRange.end > item.weekday_open	
+
 			}
 		})
 

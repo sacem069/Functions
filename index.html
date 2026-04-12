@@ -47,14 +47,16 @@
     <!-- CHOOSE A TIME -->
 
     <section>
-      <label for="time-select"> Choose a time: </label>
-      <input type="time" id="time-select" name="time" min="09:00" max="22:30" required />
-
+      <label for="time-select">Choose a time:</label>
+      <button type="button" value="Morning" class="time-btn">Morning</button>
+      <button type="button" value="Afternoon" class="time-btn">Afternoon</button>
+      <button type="button" value="Evening" class="time-btn">Evening</button>
+      <input type="hidden" id="time-select" name="time">
     </section>
 
     
     <!-- BUTTONS -->
-    <section>
+    <section id="form-buttons">
       <button type="reset">Reset</button>
       <button>Submit</button>
     </section>

@@ -113,3 +113,14 @@ info {
     grid-template-columns: 1fr;
     gap: 0.5em;
 }
+
+#form-buttons {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	background-color: black;
+	color: white;
+	padding: 1em;
+	text-align: center;
+}
