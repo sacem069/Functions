@@ -49,7 +49,8 @@ let renderFacilities = (facilities) => {
 
 	facilities.forEach((facility) => {
 		let listItem = `
-			<button type="button" style="background-color: ${facilityColors[facility]}; color: white;" value="${facility}" class="facility-btn">${facility} </button>`
+			<button type="button" style="background-color: ${facilityColors[facility]}; color: white;" value="${facility}" class="facility-btn">${facility} </button>
+			<div id="labs-${facility.replaceAll(' ', '-').replaceAll('&', '')}"></div>`
 
 
 		toolPicker.insertAdjacentHTML('beforeend', listItem)
@@ -62,21 +63,25 @@ let renderFacilities = (facilities) => {
 			})
 			document.getElementById('tool-select').value = event.target.value;
 			document.getElementById('tool-dropdown').innerHTML = ''
-			renderLabs(LabsInFacilities);
+
+			let facilityId = event.target.value.replaceAll(' ', '-').replaceAll('&', '')
+			let labsContainer = document.getElementById('labs-' + facilityId)
+			document.querySelectorAll('[id^="labs-"]').forEach(div => div.innerHTML = '')
+
+			renderLabs(LabsInFacilities, labsContainer)
 
 		})
 	})
 }
 
-let renderLabs = (labs) => {
-	let labPicker = document.getElementById('lab-picker')
-	labPicker.innerHTML = ''
+let renderLabs = (labs, container) => {
+	container.innerHTML = ''
 
 	labs.forEach((lab) => {
 		let listItem = `
 			<button type="button" style="background-color: ${facilityColors[lab.facility]}; color: white;" value="${lab.name}" class="lab-btn">${lab.name} </button>
 		`
-		labPicker.insertAdjacentHTML('beforeend', listItem)
+		container.insertAdjacentHTML('beforeend', listItem)
 	})
 	document.querySelectorAll('.lab-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
@@ -84,9 +89,11 @@ let renderLabs = (labs) => {
 				return item.name === event.target.value
 			})
 			let toolsArray = selectedLab.tools.split(', ')
-			let toolDropdown = document.getElementById('tool-dropdown')
-			toolDropdown.innerHTML = `<select id="tool-select-dropdown">
+			// let toolDropdown = document.getElementById('tool-dropdown')
+			// toolDropdown.innerHTML = `<select id="tool-select-dropdown">
+			container.innerHTML = `<select id="tool-select-dropdown">
     ${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}</select>`
+			document.getElementById('tool-select-dropdown').click()
 			document.getElementById('tool-select-dropdown').addEventListener('change', (e) => {
 				document.getElementById('tool-select').value = e.target.value
 
