@@ -108,3 +108,8 @@ info {
 	padding: 1em;
 }
 
+#tool-picker {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+}
