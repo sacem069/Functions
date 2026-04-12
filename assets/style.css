@@ -1,5 +1,22 @@
 /* Some basics to make it easier to read. */
 
+@font-face {
+	font-family: 'NeueHaasBlack';
+	src: url('fonts/NeueHaasDisplayBlack.ttf');
+	font-weight: 400;
+
+}
+
+@font-face {
+	font-family: 'NeueHaasBold';
+	src: url('fonts/NeueBold.otf');
+}
+
+@font-face {
+	font-family: 'NeueHaasRegular';
+	src: url('fonts/Neue-Regular.otf');
+}
+
 :root {
      --color-3D: #0A4DFF;
      --color-media: #7A38EB;
