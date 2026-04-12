@@ -46,6 +46,7 @@ let renderItems = (data) => {
 		`
 		dataList.insertAdjacentHTML('beforeend', listItem)
 	})
+	dataList.scrollIntoView({ behavior: 'smooth' })
 }
 
 let renderFacilities = (facilities) => {

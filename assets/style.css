@@ -19,6 +19,7 @@ body {
 	margin: 0;
 	padding: var(--spacing);
 	overflow-x: hidden;
+	padding-bottom: 5em;
 }
 
 @media (width > 768px) {
@@ -113,6 +114,8 @@ info {
     grid-template-columns: 1fr;
     gap: 0.5em;
 }
+
+
 
 #form-buttons {
 	position: fixed;
