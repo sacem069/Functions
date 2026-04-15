@@ -173,3 +173,11 @@ info {
 label {
 	display: block;
 }
+
+
+#reset-btn.disabled,
+#search-btn.disabled {
+	opacity: 0.4;
+	pointer-events: none;
+}
+

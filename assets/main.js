@@ -18,6 +18,53 @@ const timeRanges = {
 	"Evening": { start: "17:00", end: "22:30" }
 }
 
+
+// https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
+const resetBtn = document.getElementById('reset-btn')
+const searchBtn = document.getElementById('search-btn')
+
+let updateButtonState = () => {
+	const selectedTool = document.getElementById('tool-select').value
+	const selectedDay = document.getElementById('day-select').value
+	const selectedTime = document.getElementById('time-select').value
+
+
+	const hasAnySelection = selectedTool || selectedDay || selectedTime
+
+	if (hasAnySelection) {
+		resetBtn.classList.remove('disabled')
+	} else {
+		resetBtn.classList.add('disabled')
+	}
+
+	// verifies if all three inputs have a value, if not, disables the search button
+	const isComplete = selectedTool && selectedDay && selectedTime
+
+	if (!isComplete) {
+		searchBtn.classList.add('disabled')
+		return
+	}
+
+	let results = allData.filter((item) => {
+		if (selectedDay == "Saturday" || selectedDay === "Sunday") {
+			return item.tools.includes(selectedTool) &&
+				item.weekend_days.includes(selectedDay)
+
+		} else {
+			let timeRange = timeRanges[selectedTime]
+			return item.tools.includes(selectedTool) &&
+				timeRange.start < item.weekday_close &&
+				timeRange.end > item.weekday_open
+		}
+	})
+	if (results.length > 0) {
+		searchBtn.classList.remove('disabled')
+	} else {
+		searchBtn.classList.add('disabled')
+	}
+}
+
+
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
@@ -75,7 +122,8 @@ let renderFacilities = (facilities) => {
 			let LabsInFacilities = allData.filter((item) => {
 				return item.facility === event.target.value
 			})
-			document.getElementById('tool-select').value = event.target.value;
+			// document.getElementById('tool-select').value = event.target.value;
+			// updateButtonState()
 			document.getElementById('tool-dropdown').innerHTML = ''
 
 			let facilityId = event.target.value.replaceAll(' ', '-').replaceAll('&', '')
@@ -109,8 +157,11 @@ let renderLabs = (labs, container) => {
 			container.innerHTML = `<select id="tool-select-dropdown">
     ${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}</select>`
 			document.getElementById('tool-select-dropdown').click()
+			document.getElementById('tool-select').value = document.getElementById('tool-select-dropdown').value
+			updateButtonState()
 			document.getElementById('tool-select-dropdown').addEventListener('change', (e) => {
 				document.getElementById('tool-select').value = e.target.value
+				updateButtonState()
 
 			})
 
@@ -122,6 +173,9 @@ let renderLabs = (labs, container) => {
 let allData = []
 
 let formElement = document.getElementById('making-center-form')
+formElement.addEventListener('reset', () => {
+	setTimeout(updateButtonState, 0)
+})
 
 //Exact day by default
 // used this example as reference to set the time input to the current time: https://codepen.io/mfehrenbach/pen/jEMpamr?editors=1010
@@ -130,23 +184,27 @@ let formElement = document.getElementById('making-center-form')
 const rightNow = new Date()
 //as get hours returns a number we need a string to use the padStart method to add a leading zero if the hour is less than 10
 
-
-
 //Exact day by default
 const dayInput = document.getElementById('day-select')
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-dayInput.value = days[rightNow.getDay()]
+dayInput.addEventListener('change', updateButtonState)
+
+// const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+// dayInput.value = days[rightNow.getDay()]
 
 document.querySelectorAll('.time-btn').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
+	btn.addEventListener('click', (event) => {
 		document.querySelectorAll('.time-btn').forEach(b => {
 			b.classList.remove('active')
-    })
-	event.target.classList.add('active')
-	document.getElementById('time-select').value = event.target.value
+		})
+		event.target.classList.add('active')
+		document.getElementById('time-select').value = event.target.value
+		updateButtonState()
 
+	})
 })
-})
+updateButtonState()
+
+
 
 
 formElement.addEventListener('submit', (event) => {
@@ -165,8 +223,8 @@ formElement.addEventListener('submit', (event) => {
 			} else {
 				let timeRange = timeRanges[selectedTime]
 				return item.tools.includes(selectedTool) &&
-				timeRange.start < item.weekday_close &&
-				timeRange.end > item.weekday_open	
+					timeRange.start < item.weekday_close &&
+					timeRange.end > item.weekday_open
 
 			}
 		})
