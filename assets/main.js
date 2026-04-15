@@ -10,7 +10,7 @@ const facilityColors = {
 	"Open Work Spaces": "#F14A02",
 }
 
-const facilities = ['3D & Digital Prototyping', 'Print', 'Media', 'Wood, Metal and Ceramics', 'Sewing and Textiles', 'Open Work Spaces']
+const facilities = ['3D & Digital Prototyping', 'Print', 'Open Work Spaces','Wood, Metal and Ceramics', 'Sewing and Textiles','Media']
 
 const timeRanges = {
 	"Morning": { start: "09:00", end: "12:00" },
@@ -111,6 +111,7 @@ let renderFacilities = (facilities) => {
 	})
 	document.querySelectorAll('.facility-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
+			document.getElementById('makingcenter-list').innerHTML = ''
 			document.querySelectorAll('.facility-btn').forEach((b) => {
 				if (b === event.target) {
 					b.classList.remove('dimmed')
@@ -163,11 +164,13 @@ let renderLabs = (labs, container) => {
 			${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}
 </select>`
            let dropdown = document.getElementById('tool-select-dropdown')
+		   dropdown.classList.add('active')
 		   dropdown.focus()
 
 	
 			dropdown.addEventListener('change', (e) => {
 				document.getElementById('tool-select').value = e.target.value
+				document.getElementById('makingcenter-list').innerHTML = ''
 				updateButtonState()
 
 			})
