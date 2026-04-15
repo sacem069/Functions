@@ -64,6 +64,14 @@ let renderFacilities = (facilities) => {
 	})
 	document.querySelectorAll('.facility-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
+			document.querySelectorAll('.facility-btn').forEach((b) => {
+				if (b === event.target) {
+					b.classList.remove('dimmed')
+				} else {
+					b.classList.add('dimmed')
+				}
+			})
+			
 			let LabsInFacilities = allData.filter((item) => {
 				return item.facility === event.target.value
 			})
