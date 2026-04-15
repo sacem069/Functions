@@ -155,8 +155,21 @@ info {
 	background-color: white;
 	color: black;
 	border: 1px solid rgb(0, 0, 0);
+	display: inline-block;
+	margin-top: 0.5em;
+
 }
 
 .facility-btn.dimmed {
 	opacity: 0.4;
+}
+
+#day-select {
+	display: block;
+	margin-top: 0.5em;
+	margin-right: 0.5em;
+}
+
+label {
+	display: block;
 }

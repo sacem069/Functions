@@ -71,7 +71,7 @@ let renderFacilities = (facilities) => {
 					b.classList.add('dimmed')
 				}
 			})
-			
+
 			let LabsInFacilities = allData.filter((item) => {
 				return item.facility === event.target.value
 			})
@@ -94,7 +94,7 @@ let renderLabs = (labs, container) => {
 
 	labs.forEach((lab) => {
 		let listItem = `
-			<button type="button" style="background-color: ${facilityColors[lab.facility]}; color: white;" value="${lab.name}" class="lab-btn">${lab.name} </button>
+			<button type="button" style="background-color: white; border: 2px solid ${facilityColors[lab.facility]}; color: black;" value="${lab.name}" class="lab-btn">${lab.name} </button>
 		`
 		container.insertAdjacentHTML('beforeend', listItem)
 	})
