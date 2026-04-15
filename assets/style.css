@@ -144,3 +144,13 @@ info {
 	padding: 1em;
 	text-align: center;
 }
+
+.time-btn.active {
+	background-color: black;
+	color: white;
+}
+
+.time-btn {
+	background-color: white;
+	color: black;
+}

@@ -80,6 +80,7 @@ let renderFacilities = (facilities) => {
 	})
 }
 
+//https://claude.ai/share/62daabaa-1485-4c60-bf8c-d81ab6b93031
 let renderLabs = (labs, container) => {
 	container.innerHTML = ''
 
@@ -114,7 +115,7 @@ let allData = []
 
 let formElement = document.getElementById('making-center-form')
 
-//Exact time by default
+//Exact day by default
 // used this example as reference to set the time input to the current time: https://codepen.io/mfehrenbach/pen/jEMpamr?editors=1010
 //selecting the time input 
 //getting current day and time
@@ -130,8 +131,13 @@ dayInput.value = days[rightNow.getDay()]
 
 document.querySelectorAll('.time-btn').forEach((btn) => {
     btn.addEventListener('click', (event) => {
-        document.getElementById('time-select').value = event.target.value
+		document.querySelectorAll('.time-btn').forEach(b => {
+			b.classList.remove('active')
     })
+	event.target.classList.add('active')
+	document.getElementById('time-select').value = event.target.value
+
+})
 })
 
 
