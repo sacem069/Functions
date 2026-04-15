@@ -142,30 +142,36 @@ let renderLabs = (labs, container) => {
 
 	labs.forEach((lab) => {
 		let listItem = `
-			<button type="button" style="background-color: white; border: 2px solid ${facilityColors[lab.facility]}; color: black;" value="${lab.name}" class="lab-btn">${lab.name} </button>
+			<button type="button" style="background-color: white; border: 2px solid ${facilityColors[lab.facility]}; color: black;" value="${lab.name}" class="lab-btn" data-lab-name="${lab.name}">${lab.name}</button>
 		`
 		container.insertAdjacentHTML('beforeend', listItem)
 	})
 	document.querySelectorAll('.lab-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
+			let clickedLabName = event.target.value
+			renderLabs(labs, container)
+			let clickedLabButton = container.querySelector(`[data-lab-name="${clickedLabName}"]`)
+
 			let selectedLab = allData.find((item) => {
 				return item.name === event.target.value
 			})
 			let toolsArray = selectedLab.tools.split(', ')
-			// let toolDropdown = document.getElementById('tool-dropdown')
-			// toolDropdown.innerHTML = `<select id="tool-select-dropdown">
-			container.innerHTML = `<select id="tool-select-dropdown">
-    ${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}</select>`
-			document.getElementById('tool-select-dropdown').click()
-			document.getElementById('tool-select').value = document.getElementById('tool-select-dropdown').value
-			updateButtonState()
-			document.getElementById('tool-select-dropdown').addEventListener('change', (e) => {
+
+			// 		container.innerHTML = `<select id="tool-select-dropdown">
+			// ${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}</select>`
+			clickedLabButton.outerHTML = `<select id="tool-select-dropdown">
+			${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}
+</select>`
+           let dropdown = document.getElementById('tool-select-dropdown')
+		   dropdown.focus()
+
+	
+			dropdown.addEventListener('change', (e) => {
 				document.getElementById('tool-select').value = e.target.value
 				updateButtonState()
 
 			})
-
-
+		
 		})
 	})
 }
@@ -186,7 +192,11 @@ const rightNow = new Date()
 
 //Exact day by default
 const dayInput = document.getElementById('day-select')
-dayInput.addEventListener('change', updateButtonState)
+dayInput.addEventListener('change', () => {
+	dayInput.classList.add('active')
+	updateButtonState()
+})
+
 
 // const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 // dayInput.value = days[rightNow.getDay()]
