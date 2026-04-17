@@ -190,3 +190,15 @@ label {
 	border: 3px solid black;
 	background-color: white;;
 } */
+
+.labs-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5em;
+}
+
+.lab-btn,
+#tool-select-dropdown {
+	width: 100%;
+	box-sizing: border-box;
+}

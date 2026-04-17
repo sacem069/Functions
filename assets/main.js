@@ -103,7 +103,7 @@ let renderFacilities = (facilities) => {
 	facilities.forEach((facility) => {
 		let listItem = `
 			<button type="button" style="background-color: ${facilityColors[facility]}; color: white;" value="${facility}" class="facility-btn">${facility} </button>
-			<div id="labs-${facility.replaceAll(' ', '-').replaceAll('&', '')}"></div>`
+			<div id="labs-${facility.replaceAll(' ', '-').replaceAll('&', '')}" class="labs-container"></div>`
 
 
 		toolPicker.insertAdjacentHTML('beforeend', listItem)
