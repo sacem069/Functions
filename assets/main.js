@@ -78,15 +78,21 @@ let renderItems = (data) => {
 			<h2>${item.name}</h2>
 			</header>
 			<img src="${item.image}" alt="${item.name}">
+
 			<div class="info">
-			<p>${item.building}</p>
-			<p>${item.floor}</p>
-			<p>${item.week_days}</p>
-			<p>${item.weekday_open}</p>
-			<p>${item.weekday_close}</p>
-			<p>${item.weekend_days}</p>
-			<p>${item.weekend_open}</p>
-			<p>${item.weekend_close}</p>
+			<div class="info-row">
+			<img src="assets/location-icon.svg " alt="Location" class="info-icon">
+			<p>${item.building} ${item.floor}</p>
+			</div>
+
+			<div class="info-row">
+			<img src="assets/time-icon.svg " alt="Clock" class="info-icon">
+			<div> 
+			<p> Weekdays: ${item.weekday_open} - ${item.weekday_close}</p>
+			<p> Weekends: ${item.weekend_open} - ${item.weekend_close}</p>
+			</div>
+			</div>
+			
 			</div>
 			
 		</li>
