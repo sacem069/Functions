@@ -20,49 +20,8 @@ const timeRanges = {
 
 
 // https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
-const resetBtn = document.getElementById('reset-btn')
-const searchBtn = document.getElementById('search-btn')
-
-let updateButtonState = () => {
-	const selectedTool = document.getElementById('tool-select').value
-	const selectedDay = document.getElementById('day-select').value
-	const selectedTime = document.getElementById('time-select').value
 
 
-	const hasAnySelection = selectedTool || selectedDay || selectedTime
-
-	if (hasAnySelection) {
-		resetBtn.classList.remove('disabled')
-	} else {
-		resetBtn.classList.add('disabled')
-	}
-
-	// verifies if all three inputs have a value, if not, disables the search button
-	const isComplete = selectedTool && selectedDay && selectedTime
-
-	if (!isComplete) {
-		searchBtn.classList.add('disabled')
-		return
-	}
-
-	let results = allData.filter((item) => {
-		if (selectedDay == "Saturday" || selectedDay === "Sunday") {
-			return item.tools.includes(selectedTool) &&
-				item.weekend_days.includes(selectedDay)
-
-		} else {
-			let timeRange = timeRanges[selectedTime]
-			return item.tools.includes(selectedTool) &&
-				timeRange.start < item.weekday_close &&
-				timeRange.end > item.weekday_open
-		}
-	})
-	if (results.length > 0) {
-		searchBtn.classList.remove('disabled')
-	} else {
-		searchBtn.classList.add('disabled')
-	}
-}
 
 
 let renderItems = (data) => {
@@ -82,14 +41,14 @@ let renderItems = (data) => {
 			<div class="info">
 			<div class="info-row">
 			<img src="assets/location-icon.svg " alt="Location" class="info-icon">
-			<p>${item.building} ${item.floor}</p>
+			<p>${item.building} <strong>${item.floor}</strong></p>
 			</div>
 
 			<div class="info-row">
 			<img src="assets/time-icon.svg " alt="Clock" class="info-icon">
 			<div> 
-			<p> Weekdays: ${item.weekday_open} - ${item.weekday_close}</p>
-			<p> Weekends: ${item.weekend_open} - ${item.weekend_close}</p>
+			<p> Weekdays: <strong>${item.weekday_open} - ${item.weekday_close}</strong></p>
+			<p> Weekends: <strong>${item.weekend_open} - ${item.weekend_close}</strong></p>
 			</div>
 			</div>
 			
@@ -187,6 +146,16 @@ let renderLabs = (labs, container) => {
 
 let allData = []
 
+let updateButtonState = () => {
+	const selectedTool = document.getElementById('tool-select').value
+	const selectedDay = document.getElementById('day-select').value
+	const selectedTime = document.getElementById('time-select').value
+
+	if (selectedTool && selectedDay && selectedTime) {
+		console.log('All selections complete')
+	}
+}
+
 let formElement = document.getElementById('making-center-form')
 formElement.addEventListener('reset', () => {
 	setTimeout(updateButtonState, 0)
@@ -226,31 +195,13 @@ updateButtonState()
 
 
 
-formElement.addEventListener('submit', (event) => {
-	event.preventDefault()
-	console.log('submitted!')
-	let selectedTool = document.getElementById('tool-select').value
-	let selectedDay = document.getElementById('day-select').value
-	let selectedTime = document.getElementById('time-select').value
-	console.log(`Tool: ${selectedTool}, Day: ${selectedDay}, Time: ${selectedTime}`)
+function goToStep(stepId) {
+	document.querySelectorAll('.step').forEach(step => {
+		step.classList.remove('active-step')
+	})
+	document.getElementById(stepId).classList.add('active-step')
 
-	let results =
-		allData.filter((item) => {
-			if (selectedDay == "Saturday" || selectedDay === "Sunday") {
-				return item.tools.includes(selectedTool) &&
-					item.weekend_days.includes(selectedDay)
-			} else {
-				let timeRange = timeRanges[selectedTime]
-				return item.tools.includes(selectedTool) &&
-					timeRange.start < item.weekday_close &&
-					timeRange.end > item.weekday_open
-
-			}
-		})
-
-	console.log(results)
-	renderItems(results)
-})
+}
 
 
 

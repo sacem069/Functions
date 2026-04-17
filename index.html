@@ -13,62 +13,81 @@
 
 <body>
   <header class="site-header">
-     <img src="assets/images/MakingCenterLogo.png" alt="Parsons Making Center Logo" class="header-logo-left">
+    <img src="assets/images/MakingCenterLogo.png" alt="Parsons Making Center Logo" class="header-logo-left">
     <img src="assets/images/IDSchools_Parsons_Logo.png" alt="Parsons Logo" class="header-logo-right">
-      
-  
+
+
   </header>
 
 
   <form id="making-center-form">
-    <label for="time-select"> CHOOSE CATEGORY </label>
 
-    <section id="tool-picker"> </section>
-    <section id="lab-picker"></section>
-    <section id="tool-dropdown"></section> 
-    <input type="hidden" id="tool-select" name="tools">
-    
-  
-<!-- CHOOSE A DAY -->
+    <section id="step-1" class="step active-step">
+      <label for="time-select"> CHOOSE CATEGORY </label>
 
-    <section>
-      <label for="day-select">CHOOSE A DAY</label>
-      <select name="day" id="day-select">
-        <option value="">CHOOSE A DAY</option>
-        <option value="Monday">Monday</option>
-        <option value="Tuesday">Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-        <option value="Saturday">Saturday</option>
-        <option value="Sunday">Sunday</option>
+      <section id="tool-picker"> </section>
+      <section id="lab-picker"></section>
+      <section id="tool-dropdown"></section>
+      <input type="hidden" id="tool-select" name="tools">
 
-      </select>
+      <div class="step-actions">
+        <button type="button" id="to-step-2"> NEXT </button>
+      </div>
     </section>
 
+    <!-- CHOOSE A DAY -->
 
-    <!-- CHOOSE A TIME -->
+    <section id="step-2" class="step">
 
-    <section>
-      <label for="time-select">CHOOSE A TIME:</label>
-      <button type="button" value="Morning" class="time-btn">Morning</button>
-      <button type="button" value="Afternoon" class="time-btn">Afternoon</button>
-      <button type="button" value="Evening" class="time-btn">Evening</button>
-      <input type="hidden" id="time-select" name="time">
-    </section>
+      <section>
+        <label for="day-select">CHOOSE A DAY</label>
+        <select name="day" id="day-select">
+          <option value="">CHOOSE A DAY</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
 
-    
-    <!-- BUTTONS -->
-    <section id="form-buttons">
-      <button type="reset" id="reset-btn" class="disabled">RESET</button>
-      <button type="submit" id="search-btn" class="disabled">SEARCH</button>
-    </section>
+        </select>
+      </section>
 
+
+      <!-- CHOOSE A TIME -->
+
+      <section>
+        <label for="time-select">CHOOSE A TIME:</label>
+        <button type="button" value="Morning" class="time-btn">Morning</button>
+        <button type="button" value="Afternoon" class="time-btn">Afternoon</button>
+        <button type="button" value="Evening" class="time-btn">Evening</button>
+        <input type="hidden" id="time-select" name="time">
+      </section>
+
+
+      <div class="step-actions">
+        <button type="button" id="back-to-step-1"> BACK </button>
+        <button type="button" id="to-step-3"> NEXT </button>
+      </div>
+
+      </section>
+
+      <!-- BUTTONS -->
+      <!-- <section id="form-buttons">
+        <button type="reset" id="reset-btn" class="disabled">RESET</button>
+        <button type="submit" id="search-btn" class="disabled">SEARCH</button>
+      </section> -->
+
+      <section id="step-3" class="step">
+        <ul id="makingcenter-list"></ul>
+
+        <div class="step-actions">
+          <button type="button" id="restart-flow"> RESTART</button>
+        </div>
+        </section>
   </form>
-  <ul id="makingcenter-list"></ul>
  
-
-
 </body>
 
 </html>
