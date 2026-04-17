@@ -201,8 +201,8 @@ dayInput.addEventListener('change', () => {
 })
 
 
-// const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-// dayInput.value = days[rightNow.getDay()]
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+dayInput.value = days[rightNow.getDay()]
 
 document.querySelectorAll('.time-btn').forEach((btn) => {
 	btn.addEventListener('click', (event) => {
