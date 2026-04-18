@@ -205,7 +205,23 @@ function goToStep(stepId) {
 	})
 	document.getElementById(stepId).classList.add('active-step')
 
+	document.querySelectorAll('.footer-icon').forEach((icon) => {
+		icon.classList.remove('active')
+	})
+
+	if (stepId === 'step-1') {
+		document.getElementById('footer-step-1').classList.add('active')
+	}
+	if (stepId === 'step-2') {
+		document.getElementById('footer-step-2').classList.add('active')
+	}		
+	if (stepId === 'step-3') {
+		document.getElementById('footer-step-3').classList.add('active')
+	}
+
 }
+
+
 const toolSelect = document.getElementById('tool-select')
 const daySelect = document.getElementById('day-select')
 const timeSelect = document.getElementById('time-select')
