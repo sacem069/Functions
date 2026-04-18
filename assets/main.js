@@ -10,7 +10,7 @@ const facilityColors = {
 	"Open Work Spaces": "#F14A02",
 }
 
-const facilities = ['3D & Digital Prototyping', 'Print', 'Open Work Spaces','Wood, Metal and Ceramics', 'Sewing and Textiles','Media']
+const facilities = ['3D & Digital Prototyping', 'Print', 'Open Work Spaces', 'Wood, Metal and Ceramics', 'Sewing and Textiles', 'Media']
 
 const timeRanges = {
 	"Morning": { start: "09:00", end: "12:00" },
@@ -27,6 +27,10 @@ const timeRanges = {
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
+	if (data.length === 0) {
+		dataList.innerHTML = '<p>No results found. Please try a different selection.</p>'
+		return
+	}
 
 	data.forEach((item) => {
 
@@ -128,18 +132,18 @@ let renderLabs = (labs, container) => {
 			clickedLabButton.outerHTML = `<select id="tool-select-dropdown">
 			${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}
 </select>`
-           let dropdown = document.getElementById('tool-select-dropdown')
-		   dropdown.classList.add('active')
-		   dropdown.focus()
+			let dropdown = document.getElementById('tool-select-dropdown')
+			dropdown.classList.add('active')
+			dropdown.focus()
 
-	
+
 			dropdown.addEventListener('change', (e) => {
 				document.getElementById('tool-select').value = e.target.value
 				document.getElementById('makingcenter-list').innerHTML = ''
 				updateButtonState()
 
 			})
-		
+
 		})
 	})
 }
@@ -193,7 +197,7 @@ document.querySelectorAll('.time-btn').forEach((btn) => {
 updateButtonState()
 
 
-
+// https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
 
 function goToStep(stepId) {
 	document.querySelectorAll('.step').forEach(step => {
@@ -202,7 +206,61 @@ function goToStep(stepId) {
 	document.getElementById(stepId).classList.add('active-step')
 
 }
+const toolSelect = document.getElementById('tool-select')
+const daySelect = document.getElementById('day-select')
+const timeSelect = document.getElementById('time-select')
 
+document.getElementById('to-step-2').addEventListener('click', () => {
+	if (toolSelect.value === "") return
+	goToStep('step-2')
+})
+
+document.getElementById('back-to-step-1').addEventListener('click', () => {
+	goToStep('step-1')
+})
+
+document.getElementById('to-step-3').addEventListener('click', () => {
+	const selectedTool = toolSelect.value
+	const selectedDay = daySelect.value
+	const selectedTime = timeSelect.value
+
+	if (selectedTool === "" || selectedDay === "" || selectedTime === "") return
+
+	let results = allData.filter((item) => {
+		if (selectedDay === 'Saturday' || selectedDay === 'Sunday') {
+			return item.tools.includes(selectedTool) &&
+				item.weekend_days.includes(selectedDay)
+		} else {
+			let timeRange = timeRanges[selectedTime]
+			return item.tools.includes(selectedTool) &&
+				// item.week_days.includes(selectedDay) &&
+				timeRange.start < item.weekday_close &&
+				timeRange.end > item.weekday_open
+
+		}
+	})
+	renderItems(results)
+	goToStep('step-3')
+})
+
+document.getElementById('restart-flow').addEventListener('click', () => {
+	formElement.reset()
+	document.getElementById('tool-select').value = ''
+	document.getElementById('time-select').value = ''
+	document.getElementById('makingcenter-list').innerHTML = ''
+
+	document.querySelectorAll('.time-btn').forEach(btn => {
+		btn.classList.remove('active')
+	})
+	document.querySelectorAll('.facility-btn').forEach(btn => {
+		btn.classList.remove('dimmed')
+	})
+	document.querySelectorAll('.labs-container').forEach((div) => {
+		div.innerHTML = ''
+	})
+
+	goToStep('step-1')
+})
 
 
 
