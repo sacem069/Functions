@@ -11,7 +11,7 @@
   <script defer src="assets/main.js"></script>
 </head>
 
-<body>
+<body class="landing-mode">
   <header class="site-header">
     <img src="assets/images/MakingCenterLogo.png" alt="Parsons Making Center Logo" class="header-logo-left">
     <img src="assets/images/IDSchools_Parsons_Logo.png" alt="Parsons Logo" class="header-logo-right">
@@ -22,7 +22,19 @@
 
   <form id="making-center-form">
 
-    <section id="step-1" class="step active-step">
+    <section id="step-0" class="step active-step landing-step">
+      <div class="landing-content">
+        <img src="assets/images/MakingCenterLogo2.png" alt="Parsons Making Center Logo" class="landing-logo">
+
+        <p class="landing-text">
+          Find where you can get the tool you are looking for
+        </p>
+        <button type="button" id="start-flow"> START</button>
+      </div>
+    </section>
+
+
+    <section id="step-1" class="step">
       <label for="tool-select"> CHOOSE CATEGORY </label>
 
       <section id="tool-picker"> </section>

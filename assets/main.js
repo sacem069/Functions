@@ -21,9 +21,6 @@ const timeRanges = {
 
 // https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
 
-
-
-
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
@@ -98,7 +95,7 @@ let renderFacilities = (facilities) => {
 
 			let facilityId = event.target.value.replaceAll(' ', '-').replaceAll('&', '')
 			let labsContainer = document.getElementById('labs-' + facilityId)
-			document.querySelectorAll('[id^="labs-"]').forEach(div => div.innerHTML = '')
+			document.querySelectorAll('.labs-container').forEach(div => div.innerHTML = '')
 
 			renderLabs(LabsInFacilities, labsContainer)
 
@@ -205,6 +202,12 @@ function goToStep(stepId) {
 	})
 	document.getElementById(stepId).classList.add('active-step')
 
+	if (stepId === 'step-0') {
+		document.body.classList.add('landing-mode')
+	} else {
+		document.body.classList.remove('landing-mode')
+	}
+
 	document.querySelectorAll('.footer-icon').forEach((icon) => {
 		icon.classList.remove('active')
 	})
@@ -225,6 +228,10 @@ function goToStep(stepId) {
 const toolSelect = document.getElementById('tool-select')
 const daySelect = document.getElementById('day-select')
 const timeSelect = document.getElementById('time-select')
+
+document.getElementById('start-flow').addEventListener('click', () => {
+	goToStep('step-1')
+})
 
 document.getElementById('to-step-2').addEventListener('click', () => {
 	if (toolSelect.value === "") return
