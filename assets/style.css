@@ -3,7 +3,6 @@
 	font-family: 'NeueDisplayBlack';
 	src: url('fonts/NeueDisplay-Black.otf');
 	font-weight: 900;
-	
 
 }
 
@@ -45,6 +44,11 @@ body {
 @media (width > 768px) {
 	body { --spacing: 3em;
 	}
+}
+
+h2 {
+	font-family: 'NeueDisplayBlack', sans-serif;
+	text-transform: uppercase;
 }
 
 .landing-step {
@@ -98,20 +102,34 @@ body {
 }
 
 .flow-button {
+	font-size: 0.9rem;
 	position: fixed;
 	right: 2em;
-	bottom: 95px;
+	bottom: 80px;
 	z-index: 1100;
 	border: 1.5px solid black;
+	background-color: white;
 }
 
 .back-button {
+	font-size: 0.9rem;
 	position: fixed;
 	left: 2em;
-	bottom: 95px;
+	bottom: 80px;
 	z-index: 1100;
 	border: 1.5px solid rgb(111, 111, 111);
-	color:lab(39.49% 0 0)
+	color:lab(39.49% 0 0);
+	background-color: white;
+}
+
+@media (width > 768px) {
+	.flow-button {
+		bottom: 95px;
+		
+	}
+	.back-button {
+		bottom: 95px;
+	}
 }
 
 
@@ -132,14 +150,14 @@ body.landing-mode {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.8em 2em;
+	padding: 0.8em 1em;
 	background-color: #F3F3F3;
 	margin-bottom: 2em;
 	border-bottom: 1px solid rgb(30, 30, 30);
 }
 
 .header-logo-left {
-	height: 30px;
+	height: 25px;
 	width: auto;
 	display: block;
 }
@@ -150,6 +168,18 @@ body.landing-mode {
 	display: block;
 }
 
+@media (width > 768px) {
+	.header-logo-left {
+		height: 30px;
+	}
+	.header-logo-right {
+		height: 35px;
+	}
+	.site-header {
+		padding: 0.8em 2em;
+	}
+}
+
 
 
 form {
@@ -158,6 +188,13 @@ form {
 	padding: 0em;
 	padding-left: 2em;
 	padding-right: 3em;
+}
+
+@media (width > 768px) {
+	form {
+		padding-left: 4em;
+		padding-right: 4em;
+	}
 }
 
 button {
@@ -225,14 +262,14 @@ select, input {
 
 
 li {
-	max-width: 80%;
+	max-width: 90%;
 	margin: 0 auto;
 	margin-bottom: 3rem;
 }
 
 @media (width > 768px) {
 	li {
-		max-width: 40%;
+		max-width: 35%;
 	}
 }
 
@@ -271,6 +308,13 @@ li header {
 .info p {
 	margin: 0;
 	line-height: 1.3;
+	font-size: 0.8rem;
+}
+
+@media (width > 768px) {
+	.info p {
+		font-size: 1rem;
+	}
 }
 
 .info strong {
@@ -312,18 +356,25 @@ li header {
 	color: black;
 	border: 1px solid rgb(0, 0, 0);
 	display: inline-block;
-	margin-top: 0.5em;
-
+	margin-top: 0.8em;
+	font-size: 0.9rem;
 }
+
+
 .facility-btn{
 	font-family: 'NeueDisplayBlack', sans-serif;
 	text-transform: uppercase;
-	padding: 13px;
+	padding: 10px;
+	font-size: 0.9rem;
 }
 
 @media (width > 768px) {
 	.facility-btn {
 		padding: 10px;
+		font-size: 1rem;
+	}
+	.time-btn {
+		font-size: 1rem;
 	}
 }
 
@@ -335,8 +386,9 @@ li header {
 
 #day-select {
 	display: block;
-	margin-top: 0.5em;
+	margin-top: 0.8em;
 	margin-right: 0.5em;
+	font-size: 0.9rem;
 	font-family: 'NeueBold', sans-serif;
 }
 
@@ -345,8 +397,16 @@ li header {
 	background-color: white;;
 }
 
+@media (width > 768px) {
+	#day-select {
+		font-size: 1rem;
+	}
+}
+
 
 label {
+	color: #e72719;
+	text-decoration: underline;
 	display: block;
 	font-family: 'NeueDisplayBlack', sans-serif;
 	text-transform: uppercase;
@@ -371,10 +431,19 @@ label {
 	gap: 0.5em;
 }
 
+
 .lab-btn,
 #tool-select-dropdown {
 	width: 100%;
 	box-sizing: border-box;
+	font-size: 0.7rem;
+}
+
+@media (width > 768px) {
+	.lab-btn,
+	#tool-select-dropdown  {
+	font-size: 1rem;
+}
 }
 
 .step {
@@ -417,4 +486,27 @@ label {
 
 .footer-icon.active {
 	opacity: 1;
+}
+
+.select-wrapper {
+	position: relative;
+	display: inline-block;
+	width: fit-content;
+}
+
+#day-select {
+	padding-right: 2em;
+	width: auto;
+	display: inline-block;
+}
+
+.select-wrapper::after {
+	content: "▼";
+	position: absolute;
+	right: 1.3em;
+	top: 65%;
+	transform: translateY(-50%);
+	font-size: 0.7rem;
+	pointer-events: none;
+
 }
