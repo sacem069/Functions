@@ -229,6 +229,22 @@ const toolSelect = document.getElementById('tool-select')
 const daySelect = document.getElementById('day-select')
 const timeSelect = document.getElementById('time-select')
 
+document.getElementById('logo-home').addEventListener('click', () => {
+	toolSelect.value = ''
+	document.getElementById('tool-dropdown').innerHTML = ''
+	document.getElementById('makingcenter-list').innerHTML = ''
+	document.querySelectorAll('.facility-btn').forEach((btn) => {
+		btn.classList.remove('dimmed')
+	})
+
+	document.querySelectorAll('.labs-container').forEach((div) => {
+		div.innerHTML = ''
+	})
+
+	goToStep('step-1')
+})
+
+
 document.getElementById('start-flow').addEventListener('click', () => {
 	goToStep('step-1')
 })

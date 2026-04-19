@@ -61,6 +61,7 @@ body {
 }
 
 .landing-content {
+	margin-top: 4em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -68,7 +69,7 @@ body {
 }
 
 .landing-logo {
-	width: 320px;
+	width: 350px;
 	height: auto;
 	display: block;
 }
@@ -77,8 +78,8 @@ body {
 	color: white;
 	font-family: 'NeueRegular', sans-serif;
 	font-size: 1rem;
-	line-height: 1.1;
-	max-width: 260px;
+	line-height: 1.3;
+	max-width: 280px;
 	margin: 0;
 }
 
@@ -89,6 +90,24 @@ body {
 	padding: 0.4em 1em;
 	font-family: 'NeueBold', sans-serif;
 }
+
+.flow-button {
+	position: fixed;
+	right: 2em;
+	bottom: 95px;
+	z-index: 1100;
+	border: 1.5px solid black;
+}
+
+.back-button {
+	position: fixed;
+	left: 2em;
+	bottom: 95px;
+	z-index: 1100;
+	border: 1.5px solid black;
+}
+
+
 
 body.landing-mode .site-header,
 body.landing-mode .step-footer{
@@ -128,7 +147,9 @@ body.landing-mode {
 form {
 	display: grid;
 	gap: var(--spacing);
-	padding: var(--spacing);
+	padding: 0em;
+	padding-left: 2em;
+	padding-right: 3em;
 }
 
 button {
