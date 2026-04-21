@@ -16,6 +16,7 @@ html {
 	text-size-adjust: none;
 }
 
+
 /* Reapply the pointer cursor for anchor tags. */
 a, button, summary { cursor: revert }
 

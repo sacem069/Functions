@@ -157,6 +157,40 @@ let updateButtonState = () => {
 	}
 }
 
+function goToStep1() {
+	goToStep('step-1')
+}
+
+function goToStep2(){
+	if (toolSelect.value === "") return 
+	goToStep('step-2')
+}
+
+function goToStep3(){
+	const selectedTool = toolSelect.value
+	const selectedDay = daySelect.value
+	const selectedTime = timeSelect.value
+
+	if (selectedTool === "" || selectedDay === "" || selectedTime === "") return
+
+	let results = allData.filter((item) => {
+		if (selectedDay === 'Saturday' || selectedDay === 'Sunday') {
+			return item.tools.includes(selectedTool) &&
+				item.weekend_days.includes(selectedDay)
+		} else {
+			let timeRange = timeRanges[selectedTime]
+			return item.tools.includes(selectedTool) &&
+				// item.week_days.includes(selectedDay) &&
+				timeRange.start < item.weekday_close &&
+				timeRange.end > item.weekday_open
+
+		}
+	})
+	renderItems(results)
+	goToStep('step-3')
+}
+
+
 let formElement = document.getElementById('making-center-form')
 formElement.addEventListener('reset', () => {
 	setTimeout(updateButtonState, 0)
@@ -196,6 +230,8 @@ updateButtonState()
 
 // https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
 
+
+
 function goToStep(stepId) {
 	document.querySelectorAll('.step').forEach(step => {
 		step.classList.remove('active-step')
@@ -213,13 +249,13 @@ function goToStep(stepId) {
 	})
 
 	if (stepId === 'step-1') {
-		document.getElementById('footer-step-1').classList.add('active')
+		document.querySelector('#footer-step-1 img').classList.add('active')
 	}
 	if (stepId === 'step-2') {
-		document.getElementById('footer-step-2').classList.add('active')
+		document.querySelector('#footer-step-2 img').classList.add('active')
 	}		
 	if (stepId === 'step-3') {
-		document.getElementById('footer-step-3').classList.add('active')
+		document.querySelector('#footer-step-3 img').classList.add('active')
 	}
 
 }
@@ -249,38 +285,12 @@ document.getElementById('start-flow').addEventListener('click', () => {
 	goToStep('step-1')
 })
 
-document.getElementById('to-step-2').addEventListener('click', () => {
-	if (toolSelect.value === "") return
-	goToStep('step-2')
-})
+document.getElementById('footer-step-2').addEventListener('click', goToStep2)
 
-document.getElementById('back-to-step-1').addEventListener('click', () => {
-	goToStep('step-1')
-})
 
-document.getElementById('to-step-3').addEventListener('click', () => {
-	const selectedTool = toolSelect.value
-	const selectedDay = daySelect.value
-	const selectedTime = timeSelect.value
+document.getElementById('footer-step-1').addEventListener('click', goToStep1) 
 
-	if (selectedTool === "" || selectedDay === "" || selectedTime === "") return
-
-	let results = allData.filter((item) => {
-		if (selectedDay === 'Saturday' || selectedDay === 'Sunday') {
-			return item.tools.includes(selectedTool) &&
-				item.weekend_days.includes(selectedDay)
-		} else {
-			let timeRange = timeRanges[selectedTime]
-			return item.tools.includes(selectedTool) &&
-				// item.week_days.includes(selectedDay) &&
-				timeRange.start < item.weekday_close &&
-				timeRange.end > item.weekday_open
-
-		}
-	})
-	renderItems(results)
-	goToStep('step-3')
-})
+document.getElementById('footer-step-3').addEventListener('click', goToStep3)
 
 document.getElementById('restart-flow').addEventListener('click', () => {
 	formElement.reset()
