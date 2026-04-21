@@ -96,9 +96,17 @@ h2 {
 #start-flow {
 	background-color: transparent;
 	color: white;
-	border: 1px solid white;
+	border: 2px solid white;
 	padding: 0.4em 1em;
 	font-family: 'NeueBold', sans-serif;
+}
+
+#start-flow:hover {
+	background-color: black;
+	font-weight: 900;
+	color:  #E42A1D;
+	/* border: 2px solid  #E42A1D; */
+	
 }
 
 .flow-button {
@@ -225,6 +233,12 @@ select, input {
 }
 }
 
+.facility-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
 .tool-select {
 	color: white;
 	width: 100%;
@@ -347,9 +361,8 @@ li header {
 }
 
 .time-btn.active {
-	background-color: white;
-	color: black;
-	border: 2.3px solid rgb(0, 0, 0);
+	background-color: black;
+	color: #E42A1D;
 }
 
 .time-btn {
@@ -373,6 +386,7 @@ li header {
 	.facility-btn {
 		padding: 10px;
 		font-size: 1rem;
+		height: 60px;
 	}
 	.time-btn {
 		font-size: 1rem;
@@ -394,8 +408,8 @@ li header {
 }
 
 #day-select.active {
-	border: 2.3px solid black;
-	background-color: white;;
+	background-color: black;
+	color: #E42A1D;
 }
 
 @media (width > 768px) {
@@ -422,8 +436,9 @@ label {
 }
 
  #tool-select-dropdown.active {
-	border: 2.3px solid black;
-	background-color: white;;
+	background-color: black;
+	color: #E42A1D;
+	font-family: 'NeueBold', sans-serif;
 } 
 
 .labs-container {
@@ -432,17 +447,27 @@ label {
 	gap: 0.5em;
 }
 
+@media (width > 768px) {
+	.labs-container {
+		grid-template-columns: 1fr 1fr;
+		gap: 1em;
+	}
+}
+
 
 .lab-btn,
 #tool-select-dropdown {
+	height: 50px;
 	width: 100%;
 	box-sizing: border-box;
 	font-size: 0.7rem;
+	font-family: 'NeueBold', sans-serif;
 }
 
 @media (width > 768px) {
 	.lab-btn,
 	#tool-select-dropdown  {
+		height: 60px;
 	font-size: 1rem;
 }
 }

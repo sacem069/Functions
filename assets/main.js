@@ -32,6 +32,7 @@ let renderItems = (data) => {
 	data.forEach((item) => {
 
 		let listItem =
+
 			`
 		    <li style="border: 3px solid ${facilityColors[item.facility]};">
 			<header style="background-color: ${facilityColors[item.facility]}; color: white;"> 
@@ -68,8 +69,10 @@ let renderFacilities = (facilities) => {
 
 	facilities.forEach((facility) => {
 		let listItem = `
+		<div class="facility-group"> 
 			<button type="button" style="background-color: ${facilityColors[facility]}; color: white;" value="${facility}" class="facility-btn">${facility} </button>
-			<div id="labs-${facility.replaceAll(' ', '-').replaceAll('&', '')}" class="labs-container"></div>`
+			<div id="labs-${facility.replaceAll(' ', '-').replaceAll('&', '')}" class="labs-container"></div>
+			</div>`
 
 
 		toolPicker.insertAdjacentHTML('beforeend', listItem)
