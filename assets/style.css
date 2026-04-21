@@ -481,11 +481,31 @@ label {
 .footer-icon {
 	width: 34px;
 	height: 34px;
-	opacity: 0.35;
+	opacity: 1;
 	display: block;
 }
 
-.footer-icon.active {
+.footer-nav-btn {
+	background-color: transparent;
+	border: none;
+	color: white;
+	opacity: 0.35;	
+	transition: 0.2 ease;
+	padding: 0.45em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-nav-btn.available {
+	background-color: black;
+	color: white;
+	opacity: 1;
+}
+
+.footer-nav-btn.active {
+	background-color: black;
+	color: #E42A1D;
 	opacity: 1;
 }
 
@@ -511,3 +531,4 @@ label {
 	pointer-events: none;
 
 }
+

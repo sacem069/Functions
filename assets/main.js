@@ -147,13 +147,35 @@ let renderLabs = (labs, container) => {
 
 let allData = []
 
+const toolSelect = document.getElementById('tool-select')
+const daySelect = document.getElementById('day-select')
+const timeSelect = document.getElementById('time-select')
+
 let updateButtonState = () => {
 	const selectedTool = document.getElementById('tool-select').value
 	const selectedDay = document.getElementById('day-select').value
 	const selectedTime = document.getElementById('time-select').value
 
+	updateFooterState()
+
 	if (selectedTool && selectedDay && selectedTime) {
 		console.log('All selections complete')
+	}
+}
+
+function updateFooterState() {
+	document.querySelectorAll('.footer-nav-btn').forEach((btn) => {
+		btn.classList.remove('available')
+	})
+
+	document
+	.getElementById('footer-step-1').classList.add('available')
+
+	if (toolSelect.value !== "") {
+		document.getElementById('footer-step-2').classList.add('available')
+	}
+	if (toolSelect.value !== "" && daySelect.value !== "" && timeSelect.value !== "") {
+		document.getElementById('footer-step-3').classList.add('available')
 	}
 }
 
@@ -244,26 +266,23 @@ function goToStep(stepId) {
 		document.body.classList.remove('landing-mode')
 	}
 
-	document.querySelectorAll('.footer-icon').forEach((icon) => {
-		icon.classList.remove('active')
+	document.querySelectorAll('.footer-nav-btn').forEach((btn) => {
+		btn.classList.remove('active')
 	})
 
 	if (stepId === 'step-1') {
-		document.querySelector('#footer-step-1 img').classList.add('active')
+		document.getElementById('footer-step-1').classList.add('active')
 	}
 	if (stepId === 'step-2') {
-		document.querySelector('#footer-step-2 img').classList.add('active')
+		document.getElementById('footer-step-2').classList.add('active')
 	}		
 	if (stepId === 'step-3') {
-		document.querySelector('#footer-step-3 img').classList.add('active')
+		document.getElementById('footer-step-3').classList.add('active')
 	}
 
 }
 
 
-const toolSelect = document.getElementById('tool-select')
-const daySelect = document.getElementById('day-select')
-const timeSelect = document.getElementById('time-select')
 
 document.getElementById('logo-home').addEventListener('click', () => {
 	toolSelect.value = ''
