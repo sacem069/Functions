@@ -297,9 +297,13 @@ updateButtonState()
 
 // https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
 
-
+// Controls which step is visible on screen and updates the footer and body styles to match the current step
 
 function goToStep(stepId) {
+
+	// only one step shown at a time. 
+	// activates the seleted state by using the ID
+	// sh
 	document.querySelectorAll('.step').forEach(step => {
 		step.classList.remove('active-step')
 	})
@@ -310,11 +314,12 @@ function goToStep(stepId) {
 	} else {
 		document.body.classList.remove('landing-mode')
 	}
-
+    // Removes the active state from all footer buttons before activating the current step button.
 	document.querySelectorAll('.footer-nav-btn').forEach((btn) => {
 		btn.classList.remove('active')
 	})
 
+	// activates the red icon if it is in the actual step
 	if (stepId === 'step-1') {
 		document.getElementById('footer-step-1').classList.add('active')
 	}
@@ -328,7 +333,8 @@ function goToStep(stepId) {
 }
 
 
-
+// Adds interaction to the main interface controls
+// when the logo is clicked, the interface resets key selections and return the users to step 1, removing previous states of buttons
 document.getElementById('logo-home').addEventListener('click', () => {
 	toolSelect.value = ''
 	document.getElementById('tool-dropdown').innerHTML = ''
@@ -344,11 +350,13 @@ document.getElementById('logo-home').addEventListener('click', () => {
 	goToStep('step-1')
 })
 
+// Starts the main flow by moving the user from the landing screen to step 1
 
 document.getElementById('start-flow').addEventListener('click', () => {
 	goToStep('step-1')
 })
 
+// allows navigation throught the footer icons 
 document.getElementById('footer-step-2').addEventListener('click', goToStep2)
 
 
@@ -356,6 +364,8 @@ document.getElementById('footer-step-1').addEventListener('click', goToStep1)
 
 document.getElementById('footer-step-3').addEventListener('click', goToStep3)
 
+
+//resets the interface to the initial state and sends the user back to step 1
 document.getElementById('restart-flow').addEventListener('click', () => {
 	formElement.reset()
 	document.getElementById('tool-select').value = ''
@@ -376,7 +386,7 @@ document.getElementById('restart-flow').addEventListener('click', () => {
 })
 
 
-
+//Loads json file, stores it in memory and uses it to generate the facility interface
 fetch('assets/data.json')
 	.then(response => response.json())
 	.then(data => {

@@ -4,7 +4,7 @@
 
 This project is a web-based tool designed to help Parsons students find the correct Making Center facility based on the tool they need, the day and the time of day. 
 
-Currently, information about Making Center spaces is spread across multiple webpages,making it difficult for students to quickly understand where to go and when facilities are open. This project simplifies that process by transforming user input into clear, filtered results. 
+Currently, information about Making Center spaces is spread across multiple webpages,making it difficult for students to quickly understand where to go and when facilities are open. This project simplifies that process by transforming user input into clear, filtered results. This project is focused in a user that already is familiar with the Making Space and needs the exact location and operational hours of the lab that offers a specific tool. 
 
 User select: 
 - **facility**
