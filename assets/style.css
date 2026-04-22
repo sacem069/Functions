@@ -488,6 +488,8 @@ label {
 	margin-top: 2em;
 }
 
+
+
 .step-footer {
 	position: fixed;
 	left: 0;
@@ -497,15 +499,22 @@ label {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 3em;
+	gap: 2em;
 	z-index: 1000;
-	padding: 0.6em;
+	padding: 0.2em;
 }
 
+@media (width > 768px) {
+	.step-footer {
+		padding: 0.4em;
+		gap: 3em;
+
+	}
+}
 
 .footer-icon {
-	width: 34px;
-	height: 34px;
+	width: 32px;
+	height: 32px;
 	opacity: 1;
 	display: block;
 }

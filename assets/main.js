@@ -63,6 +63,7 @@ let renderItems = (data) => {
 	dataList.scrollIntoView({ behavior: 'smooth' })
 }
 
+
 let renderFacilities = (facilities) => {
 	let toolPicker = document.getElementById('tool-picker')
 	toolPicker.innerHTML = ''
