@@ -213,6 +213,7 @@ function updateFooterState() {
 	}
 }
 
+// actual movement to each step. step 1 always available to move to. step 2 only if tool selected. step 3 if tool, day and time are completed
 function goToStep1() {
 	goToStep('step-1')
 }
@@ -227,13 +228,20 @@ function goToStep3(){
 	const selectedDay = daySelect.value
 	const selectedTime = timeSelect.value
 
+	// stops the function if any required selection is missing
 	if (selectedTool === "" || selectedDay === "" || selectedTime === "") return
 
+
+	// filters the dataset to keep only the labs that match the selected tool, day and time 
 	let results = allData.filter((item) => {
+
+		// if the selected day is saturday or sunday check if the labs contain the selected tool and if its open on that weekend day. 
 		if (selectedDay === 'Saturday' || selectedDay === 'Sunday') {
 			return item.tools.includes(selectedTool) &&
 				item.weekend_days.includes(selectedDay)
-		} else {
+		} 
+		// for weekdays, gets the selected time range for the selected time period. 
+		else {
 			let timeRange = timeRanges[selectedTime]
 			return item.tools.includes(selectedTool) &&
 				// item.week_days.includes(selectedDay) &&
@@ -266,16 +274,19 @@ dayInput.addEventListener('change', () => {
 	updateButtonState()
 })
 
-
+// Creates an array that stores all days of the week. Day input sets the exact day automaticlly. 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 dayInput.value = days[rightNow.getDay()]
 
+// when the time button is clicked, removes the active state from the other time buttons, and adds active state to the clicked one
 document.querySelectorAll('.time-btn').forEach((btn) => {
 	btn.addEventListener('click', (event) => {
 		document.querySelectorAll('.time-btn').forEach(b => {
 			b.classList.remove('active')
 		})
 		event.target.classList.add('active')
+
+		//updates time input value based on the selected button and updates the footer navigation state after a selecting time
 		document.getElementById('time-select').value = event.target.value
 		updateButtonState()
 
