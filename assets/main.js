@@ -20,7 +20,9 @@ const timeRanges = {
 
 
 // https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
-
+// Creates a function that recieves data as a parameter which represents the filtered list of facilities to display. 'data' represents the filtered list of facilities that match the user's selections. 
+// This function generates visual result cards based on the filtered data and renders them to the page. Each card includes the facility name, image, location, and hours of operation. The cards are styled with colors corresponding to their respective facilities for easy identification.
+// 'datalist' is a variable that stores the HTML container where the results will be inserted. The container is cleared before rendeing new results.
 let renderItems = (data) => {
 	let dataList = document.getElementById('makingcenter-list')
 	dataList.innerHTML = ''
@@ -63,12 +65,18 @@ let renderItems = (data) => {
 	dataList.scrollIntoView({ behavior: 'smooth' })
 }
 
+// Creates a function that recieves the name of facility names as a parameter 
+// This function generates the category buttons and places them inside the tool picker container. 'toolPicker' is a variable that stores the HTML element where all facility options will be displayed. 
+// The container is cleared first so that old content leaves the page. 
 
 let renderFacilities = (facilities) => {
 	let toolPicker = document.getElementById('tool-picker')
 	toolPicker.innerHTML = ''
 
+	// Loops through each facility in the facilities array and creates a button with its corresponding color and labs container. 
 	facilities.forEach((facility) => {
+
+		// listItem stores the HTML stucture for each facility group 
 		let listItem = `
 		<div class="facility-group"> 
 			<button type="button" style="background-color: ${facilityColors[facility]}; color: white;" value="${facility}" class="facility-btn">${facility} </button>
@@ -76,13 +84,19 @@ let renderFacilities = (facilities) => {
 			</div>`
 
 
+			// Inserts each facility group into the tool picker container. 
 		toolPicker.insertAdjacentHTML('beforeend', listItem)
 
 	})
+
+	// After rendering the facility buttons this loop adds a click event to each one. 
 	document.querySelectorAll('.facility-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
+			// clears the results and tool dropdown each time a new facility is selected. It also dims the unselected facility buttons to highlight the current selection.
 			document.getElementById('makingcenter-list').innerHTML = ''
 			document.querySelectorAll('.facility-btn').forEach((b) => {
+
+				// === is strict comparing if this was the button that was callled. if it is, removes the 'dimmed' state, if its not, it adds it.
 				if (b === event.target) {
 					b.classList.remove('dimmed')
 				} else {
@@ -90,24 +104,30 @@ let renderFacilities = (facilities) => {
 				}
 			})
 
+			// filters the dataset and keeps only the labs that belong to the facility selected
 			let LabsInFacilities = allData.filter((item) => {
 				return item.facility === event.target.value
 			})
-			// document.getElementById('tool-select').value = event.target.value;
-			// updateButtonState()
+			
 			document.getElementById('tool-dropdown').innerHTML = ''
 
+			// converts the facility name into a valid HTML id by replacing spaces with '-' and removing '&'
+			// then finds the correct lab that belongs to the selected familiy
 			let facilityId = event.target.value.replaceAll(' ', '-').replaceAll('&', '')
 			let labsContainer = document.getElementById('labs-' + facilityId)
 			document.querySelectorAll('.labs-container').forEach(div => div.innerHTML = '')
-
+ 
+			// calls the renderLabs function to display the filtered labs inside the correct container. 
 			renderLabs(LabsInFacilities, labsContainer)
 
 		})
 	})
 }
 
+
 //https://claude.ai/share/62daabaa-1485-4c60-bf8c-d81ab6b93031
+// create a function that recieves filter lab data and the container where those labs should be displayed.
+// Loops through each lab in the filter lab array and creates the lab button. Inserts each lab button into the selected container. 
 let renderLabs = (labs, container) => {
 	container.innerHTML = ''
 
@@ -117,6 +137,9 @@ let renderLabs = (labs, container) => {
 		`
 		container.insertAdjacentHTML('beforeend', listItem)
 	})
+	// Select all lab buttons and adds click functionality to each of them 
+	// Identifies the clicked lab, finds its matching data and takes the list of tools available in that lab. 
+	// Converts the tool list from a string to an array
 	document.querySelectorAll('.lab-btn').forEach((btn) => {
 		btn.addEventListener('click', (event) => {
 			let clickedLabName = event.target.value
@@ -128,8 +151,10 @@ let renderLabs = (labs, container) => {
 			})
 			let toolsArray = selectedLab.tools.split(', ')
 
-			// 		container.innerHTML = `<select id="tool-select-dropdown">
-			// ${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}</select>`
+			// Replaces the clicked lab button with dropdown of tools, activates the dropdown and updates the selected tool 
+			// outerHtml replaces the entire element. .map() is creating a dropdown option for each tool .join('') combines all the options into an HTML string 
+			// dropdown.focus () places the cursor on the dropdown. 
+
 			clickedLabButton.outerHTML = `<select id="tool-select-dropdown">
 			${toolsArray.map(tool => `<option value="${tool}">${tool}</option>`).join('')}
 </select>`
@@ -167,14 +192,19 @@ let updateButtonState = () => {
 	}
 }
 
+// https://chatgpt.com/share/69dfbb11-3508-83ea-9a27-347e346f84e4
+// Function that controls footer navigation. 
 function updateFooterState() {
 	document.querySelectorAll('.footer-nav-btn').forEach((btn) => {
 		btn.classList.remove('available')
 	})
 
+	// This ensures step 1 is always available 
 	document
 	.getElementById('footer-step-1').classList.add('available')
 
+	// checks if user selected a tool. if it did, step 2 icon gets available.
+	// then checks if selected day and time and step 3 icon available. 
 	if (toolSelect.value !== "") {
 		document.getElementById('footer-step-2').classList.add('available')
 	}
